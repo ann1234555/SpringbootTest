@@ -1,5 +1,6 @@
 package tw.com.phctw.model;
 
+import java.io.Serializable;
 import java.sql.Date;
 
 import javax.persistence.Column;
@@ -12,7 +13,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="STUDENT4")
-public class Student {
+public class Student{
 	@Id
 	@Column(name = "SID")
 	@SequenceGenerator( name = "STD_SEQ", sequenceName = "HIBERNATE_SEQUENCE", allocationSize = 1 ) 
