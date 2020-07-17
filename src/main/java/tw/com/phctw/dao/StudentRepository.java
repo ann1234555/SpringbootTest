@@ -41,7 +41,7 @@ public interface StudentRepository extends JpaRepository<Student, Long>{
 	
 	//forget password
 	@RestResource(exported = true)
-	@Query("FROM Student WHERE SACC = :sacc and SPWD = :smail")
+	@Query("FROM Student WHERE SACC = :sacc and SMAIL = :smail")
 	Student getStudentBySaccAndSmail(@Param("sacc") String sacc,@Param("smail") String smail);
 	
 }

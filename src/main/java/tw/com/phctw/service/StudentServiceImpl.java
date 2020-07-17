@@ -70,7 +70,7 @@ public class StudentServiceImpl implements StudentService{
 		}
 	}
 	
-	//save
+	//save - register
 	@Override
 	public boolean saveStudent(Student s) {
 		try {
@@ -84,6 +84,23 @@ public class StudentServiceImpl implements StudentService{
 			throw e;
 		}
 	}
+	
+	@Override
+	public Student checkSaccExist(String sacc) {
+		Student student = null;
+		try {
+			student = dao.getStudentBySacc(sacc);
+			if(student != null) {
+				return student;
+			}
+			return null;
+		} catch (Exception e) {
+			System.out.println("checkSaccExist:"+e);
+			throw e;
+		}
+	}
+	
+	
 	
 	//login
 	@Override
@@ -102,20 +119,7 @@ public class StudentServiceImpl implements StudentService{
 		}
 	}
 
-	@Override
-	public boolean checkSaccExist(String sacc) {
-		Student student = null;
-		try {
-			student = dao.getStudentBySacc(sacc);
-			if(student != null) {
-				return true;
-			}
-			return false;
-		} catch (Exception e) {
-			System.out.println("checkSaccExist:"+e);
-			throw e;
-		}
-	}
+	
 
 	//register
 //	@Override
@@ -132,6 +136,7 @@ public class StudentServiceImpl implements StudentService{
 //		}
 //	}
 	
+	//forget pwd
 	@Override
 	public Student checkForgotenStd(Student s) {
 		Student student = null;
